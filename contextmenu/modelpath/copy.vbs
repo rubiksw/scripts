@@ -3,10 +3,15 @@ If objArgs.Count = 0 Then
     WScript.Quit 1
 End If
 
-scriptFolder = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, "\"))
-batchFilePath = scriptFolder & "copy.bat"
+inputPath = objArgs(0)
+normalizedPath = LCase(Replace(inputPath, "\", "/"))
+
+If InStr(normalizedPath, "/models/") = 0 Then
+    WScript.Quit 1
+End If
+
+outputPath = "models/" & Mid(normalizedPath, InStr(normalizedPath, "/models/") + 8)
 
 Dim shell
 Set shell = CreateObject("WScript.Shell")
-shell.Run """" & batchFilePath & """ """ & objArgs(0) & """", 0, False
-
+shell.Run "cmd /c echo | set /p=""" & outputPath & """ | clip", 0, False

@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.mdl]
+@="mdlfile"
+
+[HKEY_CLASSES_ROOT\mdlfile\shell\CopyModelPath]
+@="Copy model path"
+
+[HKEY_CLASSES_ROOT\mdlfile\shell\CopyModelPath\command]
+@="wscript \"D:\\scripts\\contextmenu\\modelpath\\copy.vbs\" \"%V\""
