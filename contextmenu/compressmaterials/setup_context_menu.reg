@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\CompressVTFs]
+@="Compress VTFs"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\CompressVTFs\command]
+@="cscript \"d:\\scripts\\contextmenu\\compressmaterials\\compress.vbs\" \"%V\""
